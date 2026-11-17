@@ -1,0 +1,37 @@
+{
+  "index": {
+    "regex_chars": 410,
+    "dfa_states": 542,
+    "dfa_transitions": 23703,
+    "vocab_size": 512,
+    "allowed_pairs": 43077,
+    "native_backend": "c++20-native (clang++ -O3)",
+    "native_seconds": 0.00022616599972025142,
+    "python_seconds": 0.03205608400003257,
+    "speedup": 141.73697213411072,
+    "bit_exact": true
+  },
+  "index_large_vocab": {
+    "regex_chars": 410,
+    "dfa_states": 542,
+    "dfa_transitions": 23703,
+    "vocab_size": 16384,
+    "allowed_pairs": 927157,
+    "native_backend": "c++20-native (clang++ -O3)",
+    "native_seconds": 0.006753208999725757,
+    "python_seconds": 0.7548472080002284,
+    "speedup": 111.77607682967937,
+    "bit_exact": true
+  },
+  "validity": {
+    "samples": 20,
+    "temperature": 0.8,
+    "unconstrained_valid": 1,
+    "schema_constrained_valid": 20,
+    "grammar_constrained_json": 19,
+    "grammar_truncated": 1,
+    "mean_allowed_fraction": 0.3176630748974605,
+    "unconstrained_example": "{\"name\":\"Asha Rao\",\"role\":\"intern\",\"active\":true}",
+    "constrained_example": "{\"name\":\"Asha Rao\",\"age\":61,\"role\":\"manager\",\"email\":\"omar.fischer@example.com\",\"skills\":[\"pythonrust\"],\"active\":true}"
+  }
+}

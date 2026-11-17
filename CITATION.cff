@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use or reference Syntara in structured-generation research or production LLM systems, please cite it as below."
+type: software
+title: "Syntara: Grammar-Constrained Structured Decoding — JSON Schema/Regex to Minimal Byte DFA, Native C++20 Token Index, Byte-Level Earley CFG Constraints & Exact Choice Scoring"
+version: 1.0.0
+date-released: "2026-11-17"
+license: Apache-2.0
+url: "https://nagarjunak-pixel.github.io/"
+repository-code: "https://github.com/nagarjunak-pixel/syntara"
+authors:
+  - family-names: "Kamireddy"
+    given-names: "Nagarjuna Reddy"
+    affiliation: "Suryagentic AI"

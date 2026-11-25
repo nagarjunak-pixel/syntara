@@ -174,6 +174,6 @@ Earley Parsing* (2002) · Thompson (1968) · Rabin & Scott (1959) · Moore (1956
 
 ## Author & Canonical Portfolio
 
-Engineered by **Nagarjuna Reddy Kamireddy** (*Principal / Lead AI Architect · Dubai, UAE*). Released under the [Apache-2.0 License](LICENSE).
+Engineered by **Nagarjuna Reddy Kamireddy** (*Lead AI Architect*). Released under the [Apache-2.0 License](LICENSE).
 - **Architecture Portfolio & Case Studies:** [https://nagarjunak-pixel.github.io/](https://nagarjunak-pixel.github.io/)
 - **GitHub:** [@nagarjunak-pixel](https://github.com/nagarjunak-pixel) · **LinkedIn:** [in/nagarjuna-kamireddy](https://linkedin.com/in/nagarjuna-kamireddy)

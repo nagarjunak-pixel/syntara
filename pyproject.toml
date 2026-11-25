@@ -9,7 +9,7 @@ description = "Grammar-constrained structured decoding: JSON Schema/regex -> min
 readme = "README.md"
 license = { text = "Apache-2.0" }
 requires-python = ">=3.12"
-authors = [{ name = "Nagarjuna Kamireddy", email = "sendemailtonagarjuna@gmail.com" }]
+authors = [{ name = "Nagarjuna Kamireddy", email = "writetonagarjuna@gmail.com" }]
 keywords = ["structured-generation", "constrained-decoding", "json-schema", "llm", "earley", "dfa"]
 dependencies = [
   "numpy>=1.26.0",

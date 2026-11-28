@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "syntara"
-version = "1.0.0"
+version = "1.1.0"
 description = "Grammar-constrained structured decoding: JSON Schema/regex -> minimal byte DFA -> native C++20 token index, byte-level Earley CFG constraints, and exact closed-set choice scoring"
 readme = "README.md"
 license = { text = "Apache-2.0" }

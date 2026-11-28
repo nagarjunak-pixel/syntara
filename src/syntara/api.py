@@ -9,6 +9,7 @@ from pydantic import BaseModel, Field, model_validator
 
 from syntara import __version__
 from syntara.corpus import demo_bundle
+from syntara.cost_matrix import CostMatrixDecisionHead
 from syntara.decode import Constraint, Generation, generate, score_choices
 from syntara.earley import GrammarConstraint, GrammarError
 from syntara.index import RegexConstraint
@@ -66,6 +67,22 @@ class ScoreItem(BaseModel):
     choice: str
     log_prob: float
     mean_log_prob: float
+
+
+class CostDecisionRequest(BaseModel):
+    outcome_probs: list[float] = Field(min_length=3, max_length=3)
+    amount_usd: float = Field(ge=0.0)
+    kl_weight: float = Field(default=50.0, gt=0.0)
+
+
+class CostDecisionResponse(BaseModel):
+    selected_action: str
+    expected_loss_usd: float
+    naive_argmax_action: str
+    naive_expected_loss_usd: float
+    expected_savings_usd: float
+    kl_to_uniform_nats: float
+    policy_distribution: list[float]
 
 
 def _regex_for(spec: ConstraintSpec) -> str | None:
@@ -171,5 +188,22 @@ def create_app() -> FastAPI:
         return [
             ScoreItem(choice=s.choice, log_prob=s.log_prob, mean_log_prob=s.mean_log_prob) for s in ranked
         ]
+
+    @app.post("/v1/decision", response_model=CostDecisionResponse)
+    def decision_endpoint(req: CostDecisionRequest) -> CostDecisionResponse:
+        head = CostMatrixDecisionHead.default_financial_audit_head(kl_weight=req.kl_weight)
+        try:
+            res = head.decide(req.outcome_probs, req.amount_usd)
+        except ValueError as exc:
+            raise HTTPException(status_code=422, detail=str(exc)) from exc
+        return CostDecisionResponse(
+            selected_action=res.selected_action,
+            expected_loss_usd=res.expected_loss_usd,
+            naive_argmax_action=res.naive_argmax_action,
+            naive_expected_loss_usd=res.naive_expected_loss_usd,
+            expected_savings_usd=res.expected_savings_usd,
+            kl_to_uniform_nats=res.kl_to_uniform_nats,
+            policy_distribution=list(res.policy_distribution),
+        )
 
     return app

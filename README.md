@@ -1,6 +1,7 @@
 # Syntara — Grammar-Constrained Structured Decoding Engine
 
 [![Syntara CI](https://github.com/nagarjunak-pixel/syntara/actions/workflows/ci.yml/badge.svg)](https://github.com/nagarjunak-pixel/syntara/actions/workflows/ci.yml)
+[![Release v1.1.0](https://img.shields.io/badge/release-v1.1.0-1f6feb.svg)](https://github.com/nagarjunak-pixel/syntara/releases/tag/v1.1.0)
 ![Python 3.13](https://img.shields.io/badge/python-3.13-blue) ![C++20](https://img.shields.io/badge/C%2B%2B-20-00599C) ![mypy strict](https://img.shields.io/badge/mypy-strict-success) ![coverage](https://img.shields.io/badge/coverage-%E2%89%A595%25-brightgreen) ![License](https://img.shields.io/badge/license-Apache--2.0-lightgrey)
 
 **Syntara makes an LLM's output match a JSON Schema, regex or context-free grammar by construction, not by retrying.**
@@ -153,6 +154,10 @@ model.
   per UTF-8 byte for non-ASCII characters.
 - The bundled LM is a deterministic 4-gram model, so CI runs in seconds without weights. The
   masking layer does not depend on the model.
+
+## v1.1.0 — Amount-Scaled Cost-Matrix Decision Layer (`src/syntara/cost_matrix.py`)
+
+Symmetric cross-entropy argmax treats a `$50` variance and a `$500,000` ledger misstatement identically. `CostMatrixDecisionHead` (`POST /v1/decision`, `arXiv:2611.34858`) pairs closed-set outcome probabilities with transaction-magnitude-scaled institutional cost matrices `C(a, y, amount_usd)`, selects minimum expected dollar-loss actions, computes closed-form `KL`-anchored Boltzmann action posteriors (`kl_divergence_nats`), and audits Expected Calibration Error (`expected_calibration_error`) across heteroscedastic financial ledger streams.
 
 ## Repository layout
 
